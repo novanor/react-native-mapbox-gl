@@ -16,6 +16,7 @@ import resolveAssetSource from 'react-native/Libraries/Image/resolveAssetSource'
 const viewConfig = {
   uiViewClassName: 'RCTMapboxAnnotation',
   validAttributes: {
+    anchor: true,
     coordinate: true,
   },
 };
@@ -25,18 +26,19 @@ const propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string,
   subtitle: PropTypes.string,
+  anchor: PropTypes.arrayOf(PropTypes.number),
   coordinate: PropTypes.shape({
     latitude: PropTypes.number.isRequired,
     longitude: PropTypes.number.isRequired,
   }).isRequired,
-  
+
 };
 
 class MapboxAnnotation extends React.Component {
   setNativeProps(nativeProps) {
     this.marker.setNativeProps(nativeProps);
   }
-  
+
   render() {
     return (
       <RCTMapboxAnnotation

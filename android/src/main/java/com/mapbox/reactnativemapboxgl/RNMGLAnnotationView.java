@@ -13,6 +13,8 @@ public class RNMGLAnnotationView extends ReactViewGroup {
     private Set<PropertyListener> propertyListeners;
     private String annotationId;
     private LatLng coordinate;
+    private float anchorU = 0.5f;
+    private float anchorV = 0.5f;
     private float layoutWidth;
     private float layoutHeight;
 
@@ -37,6 +39,24 @@ public class RNMGLAnnotationView extends ReactViewGroup {
 
     public void setCoordinate(LatLng coordinate) {
         this.coordinate = coordinate;
+        fireUpdateEvent();
+    }
+
+    public Float getAnchorU() {
+        return anchorU;
+    }
+
+    public void setAnchorU(Float value) {
+        this.anchorU = value;
+        fireUpdateEvent();
+    }
+
+    public Float getAnchorV() {
+        return anchorV;
+    }
+
+    public void setAnchorV(Float value) {
+        this.anchorV = value;
         fireUpdateEvent();
     }
 

@@ -1,6 +1,7 @@
 package com.mapbox.reactnativemapboxgl;
 
 import com.facebook.react.bridge.ReadableMap;
+import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.uimanager.LayoutShadowNode;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.ViewGroupManager;
@@ -46,6 +47,12 @@ public class RNMGLAnnotationViewManager extends ViewGroupManager<RNMGLAnnotation
         coordinate.setLatitude(map.getDouble("latitude"));
         coordinate.setLongitude(map.getDouble("longitude"));
         view.setCoordinate(coordinate);
+    }
+
+    @ReactProp(name = "anchor")
+    public void setAnchorU(RNMGLAnnotationView view, ReadableArray anchor) {
+        view.setAnchorU((float)anchor.getDouble(0));
+        view.setAnchorV((float)anchor.getDouble(1));
     }
 
     @Override
